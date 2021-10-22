@@ -56,7 +56,9 @@ export class AppComponent {
   isMale: boolean = true;
   isFemale: boolean = true;
   searchString: string = '';
-
+  candidate: Candidates;
+  isMGender: boolean = false;
+  isFGender: boolean = false;
   filterData(name, val) {
     if (name == 'male') this.isMale = val;
     else this.isFemale = val;
@@ -75,12 +77,12 @@ export class AppComponent {
   }
 
   searchData(event) {
-  this.searchString=event.target.value;
+    this.searchString = event.target.value;
     if (this.searchString == '') {
-      console.log("--");
+      console.log('--');
       this.dataSource = ELEMENT_DATA;
     } else {
-      console.log("--l");
+      console.log('--l');
       this.dataSource = ELEMENT_DATA.filter(
         (data) =>
           data.first_name.includes(this.searchString) ||
@@ -89,4 +91,6 @@ export class AppComponent {
       );
     }
   }
+
+  changeGender(val) {}
 }
